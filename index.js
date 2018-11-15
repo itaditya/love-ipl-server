@@ -12,6 +12,7 @@ const Player = require("./models/Player");
 const Match = require("./models/Match");
 const Ball = require("./models/Ball");
 
+const port = process.env.PORT || 5000;
 const app = polka();
 
 app.use(json(), jsonSendMw);
@@ -194,4 +195,4 @@ app.get("/playerperf", async (req, res) => {
   res.json({ message: "success", data });
 })
 
-app.listen(5000).then(() => console.log(`> Running on http://localhost:5000`));
+app.listen(port).then(() => console.log(`> Running on http://localhost:${port}`));
